@@ -77,7 +77,23 @@ class IndexController extends Controller
         // For get review from db to show into sigle page product ======>etay orm model use kora hoace karon etar join model e kora=====>
         $review = Review::where('product_id', $product->id)->orderBy('id','DESC')->take(6)->get();
 
-        return view('frontend.product.product_details',compact('product','related_product','review'));
+
+        // For social Share =====>
+        // Share button 1
+               $shareButtons1 = \Share::page(
+                     url()->current()
+               )
+               ->facebook()
+               ->twitter()
+               ->linkedin()
+               ->telegram()
+               ->whatsapp() 
+               ->reddit();
+
+
+               
+
+        return view('frontend.product.product_details',compact('product','related_product','review','shareButtons1'));
     }
 
 

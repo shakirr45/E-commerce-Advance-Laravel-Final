@@ -172,6 +172,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // For social ===>
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
+
+
 
 
 
@@ -192,6 +196,8 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        // For social ===>
+        'Share' => Jorenvh\Share\ShareFacade::class,
 
 
     ])->toArray(),

@@ -50,7 +50,10 @@ class CampaignController extends Controller
         ->addColumn('action', function($row){
             $actionbtn= '<a href="#" class="btn btn-info btn-sm edit" data-toggle="modal" data-target="#editModal" data-id="'.$row->id.'"><i class="fas fa-edit"></i></a>
 
-            <a href="'.route('campaign.delete',[$row->id]).'" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>';
+            <a href="'.route('campaign.delete',[$row->id]).'" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+            
+            <a href="'.route('campaign.product',[$row->id]).'" class="btn btn-green btn-sm"><i class="fas fa-plus"></i></a>';
+
             return $actionbtn;
         })
         ->rawColumns(['action','status'])
@@ -151,6 +154,16 @@ class CampaignController extends Controller
         DB::table('campaigns')->where('id',$request->id)->update($data);
         return redirect()->back()->with('success' , 'Success to Update campaign');
         }
+    }
+
+
+    // Campaign product all method ======>
+    public function campaignProduct($campaign_id){
+        $products = DB::table('products')->leftJoin('categories', 'products.category_id', 'categories.id')->leftJoin('subcategories', 'products.subcategory_id', 'subcategories.id')->leftJoin('brands', 'products.brand_id', 'brands.id')->select('products.*', 'categories.category_name', 'subcategories.subcategory_name', 'brands.brand_name')->where('products.status', '1')->get();
+
+        // return response()->json($products);
+
+        return view('admin.offer.campaign_product.index',compact('products', 'campaign_id')); // param er id pathalm
     }
 
 

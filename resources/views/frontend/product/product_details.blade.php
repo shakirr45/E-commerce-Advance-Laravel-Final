@@ -7,6 +7,11 @@
 <!-- wishlist add to cart btn e design paccilo na jonne ei link add dici  -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+
+<!-- // For Social  -->
+<!-- Share JS -->
+<script src="{{ asset('public/js/share.js') }}"></script>
+
 <!-- Main Navigation from product.html -->
 @include('layouts.front_partial.collaps_nav')
 
@@ -217,6 +222,10 @@
 				<div class="col-lg-3 order-3">
 
 				<div style="border-left: 1px solid black; height: 550px; padding:8px;" class="vl">
+				<p>
+					Share into social
+				</p>
+				{!! $shareButtons1 !!}
 
 				<div class="product_category"><b> Pickup Point of this product</b></div>
 				<div ><b>{{ $product->pickupPoint->pickup_point_name }}</b></div>

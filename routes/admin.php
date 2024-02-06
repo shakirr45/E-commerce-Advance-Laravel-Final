@@ -119,6 +119,17 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'middleware' =>'is_ad
             Route::post('/update', 'CampaignController@update')->name('campaign.update');
         });
 
+        // campaign product Route----.
+        Route::group(['prefix' => 'campaign-product'],function(){
+            Route::get('/{campaign_id}', 'CampaignController@campaignProduct')->name('campaign.product');
+            // Route::post('/store', 'CampaignController@store')->name('campaign.store');
+            // Route::get('/delete/{id}', 'CampaignController@destroy')->name('campaign.delete');
+            // Route::get('/edit/{id}', 'CampaignController@edit');
+            // Route::post('/update', 'CampaignController@update')->name('campaign.update');
+        });
+
+        
+
         // order Route---with ajax
         Route::group(['prefix' => 'order'],function(){
             Route::get('/', 'OrderController@index')->name('admin.order.index');
