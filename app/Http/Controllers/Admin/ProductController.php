@@ -146,7 +146,6 @@ class ProductController extends Controller
                 // Sudhu path er jonne==+>2 line beshi code
                 // $upload_image = $imageName;
                 //  array_push($images, $upload_image);
-
                 array_push($images, $imageName);
                 }
                 $data['images'] = json_encode($images);
